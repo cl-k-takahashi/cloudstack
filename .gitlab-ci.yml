@@ -1,0 +1,17 @@
+testjob:
+  stage: build
+  script: echo This is a testjob.
+build_vmware_centos7:
+  stage: build
+  tags:
+    - centos7
+  script:
+    - echo \(VMware, CentOS 6.3\)Building cloudstack-cl with VMware support...
+    - export PATH=/opt/apache-maven-3.6.1/bin:$PATH
+    - export JAVA_HOME=$(find -L /usr/lib/jvm -type d -name "java-1.8*" | head -1)
+    - cp -n /home/gitlab-runner/vsphere_jar/vim25_55.jar deps/ || true
+    - cp -n /home/gitlab-runner/vsphere_jar/vim25_60.jar deps/ || true
+    - (cd deps && chmod +x install-non-oss.sh && ./install-non-oss.sh)
+    - cd packaging
+    - chmod +x package.sh
+    - ./package.sh -d centos7 -p noredist
