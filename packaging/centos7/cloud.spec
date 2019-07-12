@@ -180,8 +180,8 @@ touch build/gitrev.txt
 echo $(git rev-parse HEAD) > build/gitrev.txt
 
 if [ "%{_ossnoss}" == "NOREDIST" -o "%{_ossnoss}" == "noredist" ] ; then
-   echo "Adding noredist flag to the maven build"
-   FLAGS="$FLAGS -Dnoredist"
+   echo "Adding noredist flag to the maven build (VMware only)"
+   FLAGS="$FLAGS -Pvmware"
 fi
 
 if [ "%{_sim}" == "SIMULATOR" -o "%{_sim}" == "simulator" ] ; then
