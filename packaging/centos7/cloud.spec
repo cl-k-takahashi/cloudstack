@@ -178,7 +178,7 @@ echo VERSION=%{_maventag} >> build/replace.properties
 echo PACKAGE=%{name} >> build/replace.properties
 touch build/gitrev.txt
 echo $(git rev-parse HEAD) > build/gitrev.txt
-
+FLAGS="-DskipTests=true"
 if [ "%{_ossnoss}" == "NOREDIST" -o "%{_ossnoss}" == "noredist" ] ; then
    echo "Adding noredist flag to the maven build (VMware only)"
    FLAGS="$FLAGS -Pvmware"
