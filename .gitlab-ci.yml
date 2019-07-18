@@ -11,6 +11,7 @@ build_vmware_centos7:
     - export JAVA_HOME=$(find -L /usr/lib/jvm -type d -name "java-1.8*" | head -1)
     - cp -n /home/gitlab-runner/vsphere_jar/vim25_55.jar deps/ || true
     - cp -n /home/gitlab-runner/vsphere_jar/vim25_60.jar deps/ || true
+    - cp -n /home/gitlab-runner/vsphere_jar/vim25_65.jar deps/ || true
     - (cd deps && chmod +x install-non-oss.sh && ./install-non-oss.sh)
     - cd packaging
     - chmod +x package.sh
