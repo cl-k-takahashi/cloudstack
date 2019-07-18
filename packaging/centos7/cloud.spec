@@ -181,7 +181,7 @@ echo $(git rev-parse HEAD) > build/gitrev.txt
 FLAGS="-DskipTests=true"
 if [ "%{_ossnoss}" == "NOREDIST" -o "%{_ossnoss}" == "noredist" ] ; then
    echo "Adding noredist flag to the maven build (VMware only)"
-   FLAGS="$FLAGS -Pvmware"
+   FLAGS="$FLAGS -Pvmware,systemvm,developer,mysqlha"
 fi
 
 if [ "%{_sim}" == "SIMULATOR" -o "%{_sim}" == "simulator" ] ; then
